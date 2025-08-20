@@ -10,19 +10,20 @@ namespace WebAppTrainees.Models
         {
         }
 
-        static string connectionstring = @"Data Source=DESKTOP-ABDUL\SQLEXPRESS;Initial Catalog=TraineeDB;TrustServerCertificate= True; Integrated Security=True;";
+       //static string connectionstring = @"Data Source=DESKTOP-ABDUL\SQLEXPRESS;Initial Catalog=TraineeDB;TrustServerCertificate= True; Integrated Security=True;";
 
         public DbSet<Trainee> Trainees { get; set; } = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Check if the optionsBuilder is already configured
 
-           // if (!optionsBuilder.IsConfigured)
-           // {
+            if (!optionsBuilder.IsConfigured)
+            {
                 base.OnConfiguring(optionsBuilder);
-                optionsBuilder.UseSqlServer(connectionstring);
+            
+               // optionsBuilder.UseSqlServer(connectionstring);
                 
-           // }
+            }
         }
         /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
